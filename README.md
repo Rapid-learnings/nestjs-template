@@ -46,7 +46,7 @@ $ yarn test:cov
 
 # Swagger documentation
 
-open http://localhost:3000/documentation
+open http://localhost:3000/docs
 
 # Envioroment variables example
 
