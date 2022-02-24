@@ -4,7 +4,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import { UtilsService } from '../providers/utils.service';
+import { UtilsService } from '../shared/providers/utils.service';
 import { AbstractDto } from './dto/AbstractDto';
 
 export abstract class AbstractEntity<T extends AbstractDto = AbstractDto> {

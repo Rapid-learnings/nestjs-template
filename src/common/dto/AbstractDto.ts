@@ -1,5 +1,3 @@
-'use strict';
-
 import { AbstractEntity } from '../abstract.entity';
 
 export class AbstractDto {

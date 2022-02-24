@@ -14,7 +14,7 @@ import { AuthService } from './auth.service';
 import { LoginPayloadDto } from './dto/LoginPayloadDto';
 import { UserLoginDto } from './dto/UserLoginDto';
 import { UserRegisterDto } from './dto/UserRegisterDto';
-import { SentryInterceptor } from '../../interceptors/sentry-interceptor';
+import { SentryInterceptor } from '../../shared/interceptors/sentry-interceptor';
 
 @UseInterceptors(SentryInterceptor)
 @Controller('auth')
