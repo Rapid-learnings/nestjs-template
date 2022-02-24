@@ -4,8 +4,8 @@ import { SentryModule } from '@ntegral/nestjs-sentry';
 import { LogLevel } from '@sentry/types';
 import { ThrottlerModule } from '@nestjs/throttler';
 
-import { ConfigService } from './shared/services/config.service';
-import { SharedModule } from './shared/shared.module';
+import { ConfigService } from './shared/config/config.service';
+import { ConfigModule } from './shared/config/config.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
 
@@ -16,7 +16,7 @@ import { UserModule } from './modules/user/user.module';
       limit: 10,
     }),
     SentryModule.forRootAsync({
-      imports: [SharedModule],
+      imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         debug: true,
         dsn: configService.get('SENTRY_DSN'),
@@ -28,7 +28,7 @@ import { UserModule } from './modules/user/user.module';
     }),
 
     TypeOrmModule.forRootAsync({
-      imports: [SharedModule],
+      imports: [ConfigModule],
       useFactory: (configService: ConfigService) => configService.typeOrmConfig,
       inject: [ConfigService],
     }),

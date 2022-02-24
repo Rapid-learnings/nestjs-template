@@ -6,14 +6,14 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 
 import { AppModule } from './app.module';
 import { setupSwagger } from './setup-swagger';
-import { ConfigService } from './shared/services/config.service';
-import { SharedModule } from './shared/shared.module';
-import { HttpExceptionFilter } from './filters/bad-request.filter';
-import { QueryFailedFilter } from './filters/query-failed.filter';
+import { ConfigService } from './shared/config/config.service';
+import { ConfigModule } from './shared/config/config.module';
+import { HttpExceptionFilter } from './shared/filters/bad-request.filter';
+import { QueryFailedFilter } from './shared/filters/query-failed.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const configService = app.select(SharedModule).get(ConfigService);
+  const configService = app.select(ConfigModule).get(ConfigService);
 
   app.setGlobalPrefix('api');
   app.enableCors();
@@ -32,7 +32,6 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       transform: true,
-      dismissDefaultMessages: true,
       validationError: {
         target: false,
       },
