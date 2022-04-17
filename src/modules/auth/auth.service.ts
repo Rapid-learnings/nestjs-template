@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
 
-import { ConfigService } from '../../shared/config/config.service';
 import { UserDto } from '../user/dto/UserDto';
 import { UserEntity } from '../user/user.entity';
 import { UserService } from '../user/user.service';
@@ -20,7 +20,7 @@ export class AuthService {
 
   async createToken(user: UserEntity | UserDto): Promise<TokenPayloadDto> {
     return new TokenPayloadDto({
-      expiresIn: this.configService.getNumber('JWT_EXPIRATION_TIME'),
+      expiresIn: this.configService.get('JWT_EXPIRATION_TIME'),
       accessToken: await this.jwtService.signAsync({ id: user.id }),
     });
   }

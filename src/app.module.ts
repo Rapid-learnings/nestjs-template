@@ -1,38 +1,24 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SentryModule } from '@ntegral/nestjs-sentry';
-import { LogLevel } from '@sentry/types';
 import { ThrottlerModule } from '@nestjs/throttler';
 
-import { ConfigService } from './shared/config/config.service';
-import { ConfigModule } from './shared/config/config.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
+import { ConfigModule } from '@nestjs/config';
+import ormconfig from './ormconfig';
+import { envSchema } from './shared/schema/env.schema';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: [`.env.${process.env.NODE_ENV}`],
+      validationSchema: envSchema,
+    }),
     ThrottlerModule.forRoot({
       ttl: 60,
       limit: 10,
     }),
-    SentryModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        debug: true,
-        dsn: configService.get('SENTRY_DSN'),
-        logLevel: LogLevel.Debug,
-        environment: configService.nodeEnv,
-        tracesSampleRate: 1.0,
-      }),
-      inject: [ConfigService],
-    }),
-
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => configService.typeOrmConfig,
-      inject: [ConfigService],
-    }),
-
+    TypeOrmModule.forRoot(ormconfig),
     AuthModule,
     UserModule,
   ],
