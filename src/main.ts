@@ -4,12 +4,12 @@ import hpp from 'hpp';
 import xss from 'xss-clean';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { getConnectionManager } from 'typeorm';
 
 import { AppModule } from './app.module';
 import { setupSwagger } from './setup-swagger';
 import { HttpExceptionFilter } from './shared/filters/bad-request.filter';
 import { QueryFailedFilter } from './shared/filters/query-failed.filter';
-import { getConnectionManager } from 'typeorm';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
