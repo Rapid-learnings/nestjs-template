@@ -11,9 +11,13 @@ const ormconfig: TypeOrmModuleOptions = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   entities: [path.join(__dirname, '**', '*.entity.{ts,js}')],
-  migrations: [path.join(__dirname, 'migrations', '*.{ts,js}')],
+  migrations: [path.join(__dirname, 'shared/database/migrations', '*.{ts,js}')],
   cli: {
-    migrationsDir: path.join(__dirname, 'migrations', '*.{ts,js}'),
+    migrationsDir: path.join(
+      __dirname,
+      'shared/database/migrations',
+      '*.{ts,js}',
+    ),
   },
   migrationsRun: true,
   synchronize: false,

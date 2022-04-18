@@ -4,13 +4,13 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript TypeORM starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript TypeORM Monolithic starter repository.
 
 ## Getting started
 
 ```bash
 # 1. Clone the repository.
-git clone https://github.com/rakeshdr1/nestjs-template
+git clone https://github.com/Rapid-learnings/nestjs-template
 
 # 2. Enter your newly-cloned folder.
 cd nestjs-template
@@ -61,11 +61,11 @@ JWT_EXPIRATION_TIME=3600
 
 ```
 
-POSTGRES_HOST=localhost
-POSTGRES_PORT=5432
-POSTGRES_USERNAME=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_DATABASE=demo
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_DATABASE=demo
 ```
 
 # Sentry
@@ -74,6 +74,14 @@ POSTGRES_DATABASE=demo
 
 SENTRY_DSN='sentry-dsn'
 ```
+
+## Database Migrations
+
+Generate migration from database
+`yarn migration:generate initialMigration`
+
+Run migrations
+`yarn migration:run`
 
 ## Features
 
