@@ -3,17 +3,18 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import xss from 'xss-clean';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { getConnectionManager } from 'typeorm';
 
 import { AppModule } from './app.module';
 import { setupSwagger } from './setup-swagger';
-import { ConfigService } from './shared/config/config.service';
-import { ConfigModule } from './shared/config/config.module';
 import { HttpExceptionFilter } from './shared/filters/bad-request.filter';
 import { QueryFailedFilter } from './shared/filters/query-failed.filter';
+import { sentry, sentryErrorHandler } from './shared/sentry/config.sentry';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const configService = app.select(ConfigModule).get(ConfigService);
+  const configService = app.get(ConfigService);
 
   app.setGlobalPrefix('api');
   app.enableCors();
@@ -38,11 +39,17 @@ async function bootstrap() {
     }),
   );
 
-  if (['development', 'staging'].includes(configService.nodeEnv)) {
+  if (configService.get('NODE_ENV') !== 'production') {
     setupSwagger(app);
   }
+  sentry(app);
 
-  const port = configService.getNumber('PORT');
+  const connectionManager = getConnectionManager();
+  const connection = connectionManager.get('default');
+  await connection.runMigrations();
+
+  const port = configService.get('PORT');
+  app.use(sentryErrorHandler());
   await app.listen(port);
   console.info(`server running on port ${port}`);
 }
