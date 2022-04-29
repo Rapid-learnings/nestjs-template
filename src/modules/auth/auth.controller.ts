@@ -15,6 +15,8 @@ import { LoginPayloadDto } from './dto/LoginPayloadDto';
 import { UserLoginDto } from './dto/UserLoginDto';
 import { UserRegisterDto } from './dto/UserRegisterDto';
 import { SentryInterceptor } from '../../shared/interceptors/sentry-interceptor';
+import HttpCreatedResponse from '../../shared/http/created.http';
+import HttpResponse from '../../shared/http/response.http';
 
 @UseInterceptors(SentryInterceptor)
 @Controller('auth')
@@ -30,14 +32,13 @@ export class AuthController {
     type: LoginPayloadDto,
     description: 'User info with access token',
   })
-  async userLogin(
-    @Body() userLoginDto: UserLoginDto,
-  ): Promise<LoginPayloadDto> {
+  async userLogin(@Body() userLoginDto: UserLoginDto): Promise<HttpResponse> {
     const userEntity = await this.authService.validateUser(userLoginDto);
 
     const token = await this.authService.createToken(userEntity);
 
-    return new LoginPayloadDto(userEntity.toDto(), token);
+    const authData = new LoginPayloadDto(userEntity.toDto(), token);
+    return new HttpResponse(authData);
   }
 
   @Post('register')
@@ -45,9 +46,10 @@ export class AuthController {
   @ApiOkResponse({ type: UserDto, description: 'Successfully Registered' })
   async userRegister(
     @Body() userRegisterDto: UserRegisterDto,
-  ): Promise<UserDto> {
+  ): Promise<HttpCreatedResponse> {
     const createdUser = await this.userService.createUser(userRegisterDto);
 
-    return createdUser.toDto();
+    const user = createdUser.toDto();
+    return new HttpCreatedResponse({ user });
   }
 }
