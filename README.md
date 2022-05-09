@@ -6,7 +6,7 @@
 
 # About The App
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript TypeORM Monolithic starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript TypeORM Postgres Monolithic starter repository.
 
 <dl>
   <dt><b>Quick scaffolding</b></dt>
@@ -28,7 +28,7 @@
   <dd>development, staging and production environment configurations</dd>
 
   <dt><b>Swagger Api Documentation</b></dt>
-  <dd>Already integrated API documentation. To see all available endpoints visit http://localhost:3000/documentation</dd>
+  <dd>Already integrated API documentation. To see all available endpoints visit http://localhost:3000/api/documentation</dd>
 
   <dt><b>Linter</b></dt>  
   <dd>tslint + eslint + prettier = ❤️</dd>
