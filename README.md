@@ -1,89 +1,12 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+<h1 align="center">
+  NestJS Monolithic template
+</h1>
 
-## Description
+![Project Logo](./assets/Rapid%20Logo.jpeg)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript TypeORM Monolithic starter repository.
+# About The App
 
-## Getting started
-
-```bash
-# 1. Clone the repository.
-git clone https://github.com/Rapid-learnings/nestjs-template
-
-# 2. Enter your newly-cloned folder.
-cd nestjs-template
-
-# 3. Install dependencies. (Make sure yarn is installed: https://yarnpkg.com/lang/en/docs/install)
-yarn
-
-# 4. Run development server and open http://localhost:3000
-yarn start:dev
-
-```
-
-# Starting Docker container
-
-```bash
-# Run below command inside nestjs-template folder in terminal
-docker-compose up
-
-```
-
-## Test
-
-```bash
-# unit tests
-$ yarn test
-
-# e2e tests
-$ yarn test:e2e
-
-# test coverage
-$ yarn test:cov
-```
-
-# Swagger documentation
-
-open http://localhost:3000/docs
-
-# Envioroment variables example
-
-```
-
-PORT=3000
-JWT_SECRET_KEY=rxPhglGJWPlOW596
-JWT_EXPIRATION_TIME=3600
-```
-
-# Postgres envioroment variables
-
-```
-
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
-DB_DATABASE=demo
-```
-
-# Sentry
-
-```
-
-SENTRY_DSN='sentry-dsn'
-```
-
-## Database Migrations
-
-Generate migration from database
-`yarn migration:generate initialMigration`
-
-Run migrations
-`yarn migration:run`
-
-## Features
+[Nest](https://github.com/nestjs/nest) framework TypeScript TypeORM Postgres Monolithic starter repository.
 
 <dl>
   <dt><b>Quick scaffolding</b></dt>
@@ -105,11 +28,75 @@ Run migrations
   <dd>development, staging and production environment configurations</dd>
 
   <dt><b>Swagger Api Documentation</b></dt>
-  <dd>Already integrated API documentation. To see all available endpoints visit http://localhost:3000/documentation</dd>
+  <dd>Already integrated API documentation. To see all available endpoints visit http://localhost:3000/api/documentation</dd>
 
   <dt><b>Linter</b></dt>  
   <dd>tslint + eslint + prettier = ❤️</dd>
 </dl>
+
+---
+
+## Getting started
+
+```bash
+# 1. Clone the repository.
+git clone https://github.com/Rapid-learnings/nestjs-template
+
+# 2. Enter your newly-cloned folder.
+cd nestjs-template
+
+# 3. Install dependencies. (Make sure yarn is installed: https://yarnpkg.com/lang/en/docs/install)
+yarn install
+
+# 4. Run development server and open http://localhost:3000
+yarn start:dev
+
+```
+
+## Starting Docker container
+
+```bash
+# Run below command inside nestjs-template folder in terminal
+docker-compose up
+
+```
+
+---
+
+## Test
+
+```bash
+# unit tests
+$ yarn test
+
+# e2e tests
+$ yarn test:e2e
+
+# test coverage
+$ yarn test:cov
+```
+
+---
+
+## Swagger documentation
+
+After running the app, navigate to the path [http://localhost:3000/api/documentation](http://localhost:3000/api/documentation) to view swagger UI
+
+## Add Envioroment variables
+
+Please refer [.env.example](./.example.env) for the env variables that is needed
+
+---
+
+## Database Migrations
+
+Generate migration from database
+`yarn migration:generate initialMigration`
+
+Run migrations
+`yarn migration:run`
+
+---
 
 ## License
 

@@ -17,6 +17,7 @@ import { UserRegisterDto } from './dto/UserRegisterDto';
 import { SentryInterceptor } from '../../shared/interceptors/sentry-interceptor';
 import HttpCreatedResponse from '../../shared/http/created.http';
 import HttpResponse from '../../shared/http/response.http';
+import HttpOkResponse from '../../shared/http/ok.http';
 
 @UseInterceptors(SentryInterceptor)
 @Controller('auth')
@@ -38,7 +39,7 @@ export class AuthController {
     const token = await this.authService.createToken(userEntity);
 
     const authData = new LoginPayloadDto(userEntity.toDto(), token);
-    return new HttpResponse(authData);
+    return new HttpOkResponse(authData);
   }
 
   @Post('register')
