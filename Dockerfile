@@ -1,7 +1,7 @@
 FROM node:16.13.2-alpine AS dist
 COPY package.json yarn.lock ./
 
-RUN yarn install --prod
+RUN yarn install
 
 COPY . ./
 
