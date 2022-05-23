@@ -2,7 +2,7 @@ version: "3"
 services:
   app:
     env_file:
-      - .development.env
+      - .env.production
     container_name: starter_nest
     restart: always
     build: .
@@ -19,8 +19,3 @@ services:
       - "5433:5432"
     volumes:
       - ./db-data:/var/lib/postgresql/data
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8081:8080

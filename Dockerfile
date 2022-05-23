@@ -1,4 +1,4 @@
-FROM node:dubnium AS dist
+FROM node:16.13.2-alpine AS dist
 COPY package.json yarn.lock ./
 
 RUN yarn install
@@ -7,12 +7,12 @@ COPY . ./
 
 RUN yarn build
 
-FROM node:dubnium AS node_modules
+FROM node:16.13.2-alpine AS node_modules
 COPY package.json yarn.lock ./
 
 RUN yarn install --prod
 
-FROM node:dubnium
+FROM node:16.13.2-alpine
 
 ARG PORT=3000
 

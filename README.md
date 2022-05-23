@@ -57,7 +57,7 @@ yarn start:dev
 
 ```bash
 # Run below command inside nestjs-template folder in terminal
-docker-compose up
+PORT=3000 docker-compose up
 
 ```
 
