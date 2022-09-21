@@ -19,6 +19,11 @@ import HttpCreatedResponse from '../../shared/http/created.http';
 import HttpResponse from '../../shared/http/response.http';
 import HttpOkResponse from '../../shared/http/ok.http';
 
+/**
+ * AuthController is responsible for handling incoming requests specific to User and returning responses to the client.
+ * It creates a route - "/auth"
+ * @author Afzal Mansuri
+ */
 @UseInterceptors(SentryInterceptor)
 @Controller('auth')
 export class AuthController {
@@ -27,6 +32,12 @@ export class AuthController {
     public readonly authService: AuthService,
   ) {}
 
+  /**
+   * POST API - "/login" - user get authorized to  or authenticate himself
+   * @param UserLoginDto constains user data for login
+   * @returns returns user token with expiration time
+   * @throws UnauthorizedException in case user is not login information||creadentials are not matched.
+   */
   @Post('login')
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({
@@ -42,6 +53,12 @@ export class AuthController {
     return new HttpOkResponse(authData);
   }
 
+
+  /**
+   * POST API - "/register" - user creates his profile | account
+   * @param UserDto constains user data for login
+   * @returns returns user object
+   */
   @Post('register')
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({ type: UserDto, description: 'Successfully Registered' })

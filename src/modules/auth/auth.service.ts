@@ -12,7 +12,8 @@ import { UtilsService } from '../../shared/providers/utils.service';
 
 
 /**
- * This service contain contains all methods and business logic for authentication such as createToken,validateUser etc.
+ * This service contain contains all methods and business logic for authentication.
+ * @author Afzal Mansuri
  */
 @Injectable()
 export class AuthService {
@@ -30,7 +31,7 @@ export class AuthService {
 
   /**
    * This method wil assign a token to a perticular user who want to login
-   * @param user 
+   * @param user user information of currently logged in 
    * @returns token with expirationTime
    */
   async createToken(user: UserEntity | UserDto): Promise<TokenPayloadDto> {
@@ -42,8 +43,8 @@ export class AuthService {
 
   /**
    * This method is validates a user if user exists on `USER`'s schema
-   * @param userLoginDto 
-   * @returns {user}
+   * @param userLoginDto contains user information the need when login
+   * @returns {user} user object as it's information
    */
   async validateUser(userLoginDto: UserLoginDto): Promise<UserEntity> {
     const user = await this.userService.findOne({

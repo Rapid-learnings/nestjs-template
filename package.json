@@ -22,7 +22,7 @@
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js --config ./src/ormconfig.ts",
     "migration:generate": "yarn run typeorm migration:generate -d src/shared/database/migrations -n",
     "migration:run": "yarn run typeorm -- migration:run",
-    "typedoc": "typedoc --out docs/ --entryPointStrategy expand ./src --exclude \"**/*+(index.ts|./test)\""
+    "typedoc": "typedoc --options ./typedoc.json"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -81,7 +81,8 @@
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.10.1",
     "typedoc": "^0.23.15",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.3",
+    "typedoc-plugin-merge-modules": "^4.0.1"
   },
   "jest": {
     "moduleFileExtensions": [

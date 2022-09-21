@@ -4,7 +4,8 @@ import * as path from 'path';
 
 /**
  * config file path for dot-env file
- * @default `development`
+ * @default 'development'
+ * @author Afzal Mansuri
  */
 dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
 

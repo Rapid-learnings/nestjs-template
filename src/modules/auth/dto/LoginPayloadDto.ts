@@ -4,8 +4,10 @@ import { UserDto } from '../../user/dto/UserDto';
 import { TokenPayloadDto } from './TokenPayloadDto';
 
 /**
- * request DTO  for   `Login` activity api-enpoints
+ * `DataTransferObject`
+ * for   `Login` activity api-enpoints
  * to provind auhtentication facility to the user
+ * @author Afzal Mansuri
  */
 export class LoginPayloadDto {
   /**

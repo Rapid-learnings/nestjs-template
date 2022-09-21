@@ -1,5 +1,6 @@
 /**
  * @enum roles for user
+ * @author Afzal Mansuri
  */
 
 export enum RoleType {

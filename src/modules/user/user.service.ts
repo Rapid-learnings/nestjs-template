@@ -7,6 +7,7 @@ import { UserRepository } from './user.repository';
 
 /**
  * This service contain contains methods and business logic related to user like findByUsrnameOrEmail,createUser,findOne etc.
+ * @author Afzal Mansuri
  */
 @Injectable()
 export class UserService {

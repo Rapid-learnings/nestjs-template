@@ -11,6 +11,7 @@ import { constraintErrors } from './constraint-errors';
 /**
  * Thi will filter when query failed
  * @group filters
+ * @author Afzal Mansuri
  */
 @Catch(QueryFailedError)
 export class QueryFailedFilter implements ExceptionFilter<QueryFailedError> {

@@ -11,6 +11,7 @@ import { Column } from 'typeorm';
 
 /**
  * request DTO for user creation on `user registration` api-endipoints
+ * @author Afzal Mansuri
  */
 export class UserRegisterDto {
   /**

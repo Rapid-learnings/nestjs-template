@@ -9,7 +9,8 @@ import { AbstractDto } from './dto/AbstractDto';
 
 
 /**
- * @schema `schema` for `Abstarct` 
+ * @schema `schema` for `Abstarct`
+ * @author Afzal Mansuri 
  */
 export abstract class AbstractEntity<T extends AbstractDto = AbstractDto> {
   /**

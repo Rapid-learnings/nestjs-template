@@ -9,7 +9,9 @@ import { tap } from 'rxjs/operators';
 import * as Sentry from '@sentry/minimal';
 
 /**
+ * SentryInterceptor to transform outgoing objects into plain js objects
  * @category interceptors
+ * @author Afzal Mansuri
  */
 @Injectable()
 /**
@@ -19,8 +21,8 @@ export class SentryInterceptor implements NestInterceptor {
   /**
    * Returns an event for `Interceptor` 
    * @param context 
-   * @param next 
-   * @returns 
+   * @param next middleware command to execute nest paramaters in api routes
+   * @returns exception
    */
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(

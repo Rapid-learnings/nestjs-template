@@ -6,8 +6,9 @@ import type { Response } from 'express';
 import _ from 'lodash';
 
 /**
- * It filter bad request from the front-end side and provide to the api-endpoints
+ * HttpExceptionFilter catches all Http errors and converts it into a standard error response.
  * @group filters
+ * @author Afzal Mansuri
  */
 @Catch(UnprocessableEntityException)
 export class HttpExceptionFilter

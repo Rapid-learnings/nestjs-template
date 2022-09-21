@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 /**
- *request DTO of token when user login in process 
+ *request DTO of token when user login in process
+ * @author Afzal Mansuri 
  */
 export class TokenPayloadDto {
   /**

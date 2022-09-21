@@ -3,6 +3,7 @@ import { IsEmail, IsString } from 'class-validator';
 
 /**
  * request DTO with user credentials for login
+ * @author Afzal Mansuri
  */
 export class UserLoginDto {
   /**

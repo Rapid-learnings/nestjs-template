@@ -1,4 +1,13 @@
 {
-    "entryPoints": ["./src"],
-    "out": "doc"
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": [
+        "./src"
+    ],
+    "entryPointStrategy": "expand",
+    "exclude": [
+        "**/*+(index|.spec|.e2e).ts"
+    ],
+    "tsconfig": "./tsconfig.json",
+    "out": "docs",
+    "mergeModulesMergeMode": "project"
 }
