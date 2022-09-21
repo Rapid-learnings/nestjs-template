@@ -5,6 +5,10 @@ import type { ValidationError } from 'class-validator';
 import type { Response } from 'express';
 import _ from 'lodash';
 
+/**
+ * It filter bad request from the front-end side and provide to the api-endpoints
+ * @group filters
+ */
 @Catch(UnprocessableEntityException)
 export class HttpExceptionFilter
   implements ExceptionFilter<UnprocessableEntityException>
@@ -23,6 +27,11 @@ export class HttpExceptionFilter
     response.status(statusCode).json(r);
   }
 
+  /**
+   * It will do filter in validation's 
+   * @param validationErrors 
+   * @returns void
+   */
   private validationFilter(validationErrors: ValidationError[]): void {
     for (const validationError of validationErrors) {
       const children = validationError.children;

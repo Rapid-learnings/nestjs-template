@@ -5,6 +5,10 @@ import { ConfigService } from '@nestjs/config';
 
 import { UserService } from '../user/user.service';
 
+/**
+ * jwtStrategy for user authentication using passport method
+ * 
+ */
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
@@ -17,6 +21,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
+  /**
+   * This will generate token for user with calculation for when user is created and 
+   * that time plus when should be generated token should be expiredIn
+   * @param {iat, exp,userId} 
+   * @returns  {user with token}
+   */
   async validate({ iat, exp, id: userId }) {
     const timeDiff = exp - iat;
     if (timeDiff <= 0) {

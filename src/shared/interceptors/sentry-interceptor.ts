@@ -8,8 +8,20 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import * as Sentry from '@sentry/minimal';
 
+/**
+ * @category interceptors
+ */
 @Injectable()
+/**
+ * @publicApi @see (Interceptors)
+ */
 export class SentryInterceptor implements NestInterceptor {
+  /**
+   * Returns an event for `Interceptor` 
+   * @param context 
+   * @param next 
+   * @returns 
+   */
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
       tap(null, (exception) => {

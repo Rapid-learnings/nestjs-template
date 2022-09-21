@@ -1,5 +1,8 @@
 import Joi from 'joi';
 
+/**
+ * @cateogry requiredVariables
+ */
 export const envSchema = Joi.object({
   PORT: Joi.number().required(),
   NODE_ENV: Joi.string().required(),

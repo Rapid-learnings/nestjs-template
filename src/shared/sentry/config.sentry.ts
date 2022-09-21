@@ -3,6 +3,12 @@ import { ConfigService } from '@nestjs/config';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
 
+/**
+ * To set context information or send manual events, use the provided methods.
+ * @group sentry
+ * @param app
+ * @publicApi @see (INestApplication) 
+ */
 export function sentry(app: INestApplication) {
   const configService = app.get(ConfigService);
   Sentry.init({

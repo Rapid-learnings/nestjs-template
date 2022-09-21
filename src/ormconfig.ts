@@ -2,7 +2,16 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 
+/**
+ * config file path for dot-env file
+ * @default `development`
+ */
 dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
+
+
+/**
+ * configuration for TypeOrm connection to postgres database
+ */
 const ormconfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,

@@ -25,4 +25,9 @@ import { envSchema } from './shared/schema/env.schema';
   controllers: [],
   providers: [],
 })
+
+/**
+ * @module AppModule
+ * Contains all required imports,controllers, providers and services.
+ */
 export class AppModule {}

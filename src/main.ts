@@ -12,6 +12,10 @@ import { HttpExceptionFilter } from './shared/filters/bad-request.filter';
 import { QueryFailedFilter } from './shared/filters/query-failed.filter';
 import { sentry, sentryErrorHandler } from './shared/sentry/config.sentry';
 
+
+/**
+ * function for bootstraping the nest application
+ */
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
