@@ -7,7 +7,6 @@ import { TokenPayloadDto } from './TokenPayloadDto';
  * `DataTransferObject`
  * for   `Login` activity api-enpoints
  * to provind auhtentication facility to the user
- * @author Afzal Mansuri
  */
 export class LoginPayloadDto {
   /**

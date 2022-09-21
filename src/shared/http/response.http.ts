@@ -3,7 +3,6 @@ import { HttpStatus } from '@nestjs/common';
 /**
  * HttResponse will return response message and status code
  * @group http
- * @author Afzal Mansuri
  */
 export default class HttpResponse {
   public readonly data: any;

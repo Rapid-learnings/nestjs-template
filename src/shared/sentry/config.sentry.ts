@@ -8,7 +8,6 @@ import * as Tracing from '@sentry/tracing';
  * @group sentry
  * @param app abstracting type of INestApplication
  * @publicApi @see (INestApplication)
- * @author Afzal Mansuri
  */
 export function sentry(app: INestApplication) {
   const configService = app.get(ConfigService);

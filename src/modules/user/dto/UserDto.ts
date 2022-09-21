@@ -6,7 +6,6 @@ import { UserEntity } from '../user.entity';
 
 /**
  * request DTO for interactions on userServices api-enpoints 
- * @author Afzal Mansuri
  */
 export class UserDto extends AbstractDto {
   /**

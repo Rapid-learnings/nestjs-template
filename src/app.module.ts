@@ -17,7 +17,6 @@ import { envSchema } from './shared/schema/env.schema';
  *      ConfigModule - enables us to access environment variables application wide.
  *      TypeOrmModule - enables us to rate limit the number of incoming requests.
  *      
- * @author Afzal Mansuri
  */
 @Module({
   imports: [
@@ -40,6 +39,5 @@ import { envSchema } from './shared/schema/env.schema';
 /**
  * @module AppModule
  * Contains all required imports,controllers, providers and services.
- * @author Afzal Mansuri
  */
 export class AppModule {}

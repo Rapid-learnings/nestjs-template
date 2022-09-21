@@ -3,7 +3,6 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 /**
  * @group migration
  * @description  Runs a query for user table whenever this migration called or executed
- * @author Afzal Mansuri
  */
 export class initialMigration1650278780460 implements MigrationInterface {
   name = 'initialMigration1650278780460';

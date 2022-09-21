@@ -11,7 +11,6 @@ import * as Sentry from '@sentry/minimal';
 /**
  * SentryInterceptor to transform outgoing objects into plain js objects
  * @category interceptors
- * @author Afzal Mansuri
  */
 @Injectable()
 /**

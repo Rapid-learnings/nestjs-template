@@ -11,7 +11,6 @@ import { UserController } from './user.controller';
  * Here, feature modules imported are - UseRepository.
  * other modules are :
  *      TypeOrmModule - it is an ORM and enables easy access to database.
- * @author Afzal Mansuri
  */
 
 @Module({

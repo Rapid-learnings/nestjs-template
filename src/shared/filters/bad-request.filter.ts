@@ -8,7 +8,6 @@ import _ from 'lodash';
 /**
  * HttpExceptionFilter catches all Http errors and converts it into a standard error response.
  * @group filters
- * @author Afzal Mansuri
  */
 @Catch(UnprocessableEntityException)
 export class HttpExceptionFilter

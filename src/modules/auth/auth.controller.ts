@@ -22,7 +22,6 @@ import HttpOkResponse from '../../shared/http/ok.http';
 /**
  * AuthController is responsible for handling incoming requests specific to User and returning responses to the client.
  * It creates a route - "/auth"
- * @author Afzal Mansuri
  */
 @UseInterceptors(SentryInterceptor)
 @Controller('auth')

@@ -13,7 +13,6 @@ import { UtilsService } from '../../shared/providers/utils.service';
 
 /**
  * This service contain contains all methods and business logic for authentication.
- * @author Afzal Mansuri
  */
 @Injectable()
 export class AuthService {

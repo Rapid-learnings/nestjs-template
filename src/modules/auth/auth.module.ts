@@ -17,8 +17,6 @@ import { UserModule } from '../user/user.module';
  *      JwtModule - it is an Jason web token and enable token caretionfo authentication
  *      PassportModule - it enables us to setup multiple types of authentication.
  * 
- * @author Afzal Mansuri
- * 
  */
 @Module({
   imports: [

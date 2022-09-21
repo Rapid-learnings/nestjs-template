@@ -4,7 +4,6 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 /**
  * Setup configuration for swagger
  * @param app 
- * @author Afzal Mansuri
  */
 export function setupSwagger(app: INestApplication) {
   const options = new DocumentBuilder()

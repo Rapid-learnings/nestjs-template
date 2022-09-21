@@ -7,8 +7,6 @@ import { UserService } from '../user/user.service';
 
 /**
  * jwtStrategy for user authentication using passport method
- * 
- * @author Afzal Mansuri
  */
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

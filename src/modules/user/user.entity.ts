@@ -7,7 +7,6 @@ import { PasswordTransformer } from './password.transformer';
 
 /**
  * It describes users table in the database
- * @author Afzal Mansuri
  */
 @Entity({ name: 'users' })
 export class UserEntity extends AbstractEntity<UserDto> {

@@ -7,7 +7,6 @@ import HttpResponse from './response.http';
 /**
  * This will create http response
  * @category http
- * @author Afzal Mansuri
  */
 export default class HttpCreatedResponse extends HttpResponse {
   constructor(data?: any) {

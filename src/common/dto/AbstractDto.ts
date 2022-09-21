@@ -3,7 +3,6 @@ import { AbstractEntity } from '../abstract.entity';
 
 /**
  * @category `DTO`
- * @author Afzal Mansuri
  * @desciption This dto used to interact with api endpints.
  */
 export class AbstractDto {

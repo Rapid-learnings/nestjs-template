@@ -15,7 +15,6 @@ import { sentry, sentryErrorHandler } from './shared/sentry/config.sentry';
 
 /**
  * function for bootstraping the nest application
- * @author Afzal Mansuri
  */
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
