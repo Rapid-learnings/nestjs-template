@@ -7,6 +7,17 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { UserModule } from '../user/user.module';
 
+
+/**
+ * It is a feature module where we keep the controller, service and other code related to authentication and   we import other modules and configure modules and packages that are being used in this module.
+ *
+ * Here, feature modules imported are - UserModule.
+ * other modules are :
+ *      TypeOrmModule - it is an ORM and enables easy access to database.
+ *      JwtModule - it is an Jason web token and enable token caretionfo authentication
+ *      PassportModule - it enables us to setup multiple types of authentication.
+ * 
+ */
 @Module({
   imports: [
     forwardRef(() => UserModule),

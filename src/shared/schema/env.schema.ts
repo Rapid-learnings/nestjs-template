@@ -1,5 +1,10 @@
 import Joi from 'joi';
 
+/**
+ * This all values are required to run whole project
+ * @publicApi @see (joi)
+ * @cateogry requiredVariables
+ */
 export const envSchema = Joi.object({
   PORT: Joi.number().required(),
   NODE_ENV: Joi.string().required(),

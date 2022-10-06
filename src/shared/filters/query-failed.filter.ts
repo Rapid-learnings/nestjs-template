@@ -7,6 +7,11 @@ import { QueryFailedError } from 'typeorm';
 
 import { constraintErrors } from './constraint-errors';
 
+
+/**
+ * Thi will filter when query failed
+ * @group filters
+ */
 @Catch(QueryFailedError)
 export class QueryFailedFilter implements ExceptionFilter<QueryFailedError> {
   constructor(public reflector: Reflector) {}
