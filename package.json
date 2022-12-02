@@ -5,7 +5,13 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
+    "configure-husky": "npx husky install && npx husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\" && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -106,5 +112,12 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   }
+
 }
