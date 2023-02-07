@@ -1,8 +1,7 @@
-{
-    "semi": true,
-    "trailingComma": "all",
-    "singleQuote": false,
-    "printWidth": 180,
-    "tabWidth": 2,
-    "arrowParens": "avoid"
-  }
+package-lock.json
+yarn.lock
+node_modules
+test
+package.json
+README.md
+# any other unwanted files or folders
