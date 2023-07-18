@@ -101,3 +101,4 @@ Run migrations
 ## License
 
 Nest is [MIT licensed](LICENSE).
+# nestjs_template
